@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx/base.nginx:/etc/nginx/nginx.conf
+      - ./docker/nginx/log:/var/log/nginx/
+    depends_on:
+      - php-fpm
+
+  php-fpm:
+    build:
+      context: ./docker/php-fpm
+    env_file: .env
+    volumes:
+      - ./:/var/www/html
+
+  mysql:
+    image: mysql:latest
+    env_file: .env
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql

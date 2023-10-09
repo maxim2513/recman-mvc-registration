@@ -1,0 +1,21 @@
+{
+  "name": "vendor_name/recman-mvc-registration",
+  "description": "Simple MVC PHP application",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Maksym Orikhovskyi",
+      "email": "morozovmaxim25@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "ext-pdo_mysql": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+.idea
+/vendor
+!/docker/nginx/log/.gitkeep
+!/docker/mysql/data/.gitkeep
