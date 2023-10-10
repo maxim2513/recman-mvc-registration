@@ -5,6 +5,7 @@ namespace App\Models\Repositories;
 
 use App\Core\AbstractRepository;
 use App\Models\User;
+use PDO;
 
 class UserRepository extends AbstractRepository
 {
@@ -12,7 +13,7 @@ class UserRepository extends AbstractRepository
 
     public function saveUser(User $user): void
     {
-        $sql = "INSERT INTO users (first_name, last_name, email, mobile, password) 
+        $sql = "INSERT INTO ".self::TABLE_NAME." (first_name, last_name, email, mobile, password) 
         VALUES (:firstName, :lastName, :email, :mobile, :password)";
 
         $statement = $this->connection->prepare($sql);
@@ -30,5 +31,23 @@ class UserRepository extends AbstractRepository
 
         // Execute the prepared statement to insert the data
         $statement->execute();
+    }
+
+    public function getUserByEmail(string $email): User
+    {
+        $query = "SELECT * FROM ".self::TABLE_NAME." where email=:email limit 1"; // Replace with your table name
+        $statement = $this->connection->prepare($query);
+        $statement->bindParam(':email', $email);
+        $statement->execute();
+
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        return new User(
+            $result['first_name'],
+            $result['last_name'],
+            $result['email'],
+            $result['mobile'],
+            $result['password']
+        );
     }
 }

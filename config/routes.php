@@ -19,4 +19,24 @@ return [
             'method' => 'saveRegistration',
         ],
     ],
+    'login' => [
+        'GET' => [
+            /** @uses \App\Controllers\LoginController:index */
+            'class' => \App\Controllers\LoginController::class,
+            'method' => 'index',
+        ],
+        'POST' => [
+            /** @uses \App\Controllers\LoginController::login */
+            'class' => \App\Controllers\LoginController::class,
+            'method' => 'login',
+        ],
+    ],
+    'logout' => [
+        'POST' => [
+            /** @uses \App\Controllers\LoginController::logout */
+            'class' => \App\Controllers\LoginController::class,
+            'method' => 'logout',
+        ],
+    ],
+
 ];

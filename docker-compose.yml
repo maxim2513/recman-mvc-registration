@@ -17,6 +17,7 @@ services:
     env_file: .env
     volumes:
       - ./:/var/www/html
+      - ./docker/php-fpm/custom-php.ini:/usr/local/etc/php/conf.d/custom-php.ini
 
   mysql:
     image: mysql:latest
