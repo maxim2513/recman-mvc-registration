@@ -25,7 +25,7 @@ declare(strict_types=1);
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Registration</a>
+                <a class="nav-link" href="/registration">Registration</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Login</a>

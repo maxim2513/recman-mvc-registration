@@ -28,4 +28,8 @@ class Request
         return $url;
     }
 
+    public function getPost(string $name, $default = '')
+    {
+        return $_POST[$name] ?? $default;
+    }
 }

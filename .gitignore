@@ -2,3 +2,5 @@
 /vendor
 !/docker/nginx/log/.gitkeep
 !/docker/mysql/data/.gitkeep
+/docker/nginx/log/
+/docker/mysql/data/
